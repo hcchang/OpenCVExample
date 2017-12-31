@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.6)
 project(1-1_OpenCamera)
 find_package( OpenCV REQUIRED )
 
