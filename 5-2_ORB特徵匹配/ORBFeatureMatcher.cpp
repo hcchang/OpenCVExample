@@ -16,6 +16,12 @@ int main(int argc, char** argv)
 
 	cv::Mat imgFirst = cv::imread("box.png");
 	cv::Mat imgSecond = cv::imread("box_in_scene.png");
+		
+  if(!imgFirst.data || ! imgSecond.data)
+  {
+  	std::cout<<"無法讀取圖檔" << std::endl;
+  	return -1;
+  }
 
 	//偵測特徵點
 	std::vector<cv::KeyPoint> m_FirstKey, m_SecondKey;

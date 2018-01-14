@@ -7,6 +7,12 @@ int main(int argc, char** argv)
 	
 	cv::Mat imgA = cv::imread("Img1.jpg", CV_LOAD_IMAGE_GRAYSCALE);
 	cv::Mat imgB = cv::imread("Img2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+		
+	if(!imgA.data || imgB.data)
+	{
+		std::cout<<"無法讀取影像" << std::endl;
+		return -1;
+	}
 
 	cv::resize(imgA, imgA, cv::Size(imgA.cols / 2, imgA.rows / 2));
 	cv::resize(imgB, imgB, cv::Size(imgB.cols / 2, imgB.rows / 2));
@@ -48,7 +54,5 @@ int main(int argc, char** argv)
 	cv::waitKey(0);
 
 	return 0;
-	cv::waitKey(0);
 
-	return 0;
 }
