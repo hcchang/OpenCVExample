@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	//創建畫布
 	cv::Mat img(500, 500, CV_8UC3, cv::Scalar(0, 0, 0));
 
-	//第一個參數是 狀態向量的維度 此為平面 由 角度和角速度 決定
+	//第一個參數是 狀態向量的維度 此為平面 由x, y, dx, dy決定 變量為 dx,dy
 	cv::KalmanFilter kalmanFilter(4, 2, 0);
 
 	cv::Mat x_k(4, 1, CV_32F); //此為位置預測方程式
@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 	//雜訊的部分
 	cv::Mat w_k(4, 1, CV_32F);
 
-	//觀測結果 角度 1維
+	//觀測結果 2維
 	cv::Mat z_k = cv::Mat::zeros(2, 1, CV_32F);
 	
 	//建立轉移矩陣(F)

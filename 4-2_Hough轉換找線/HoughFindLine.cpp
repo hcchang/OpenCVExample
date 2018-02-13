@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv)
 {
-	cv::Mat img = cv::imread("Image.png");
+	cv::Mat img = cv::imread("building.jpg");
 	cv::Mat img_gray;
 	cv::Mat img_canny;
 	std::vector<cv::Vec2f> HoughLines;
@@ -15,9 +15,11 @@ int main(int argc, char** argv)
 
 	cv::cvtColor(img,img_gray,CV_RGB2GRAY);
 
-	cv::Canny(img_gray,img_canny,30,50,3,false);
+	cv::Canny(img_gray,img_canny,30,100,3,false);
 
 	cv::HoughLines(img_canny, HoughLines, 1, CV_PI / 180, 150, 0, 0);
+
+	cv::cvtColor(img_canny, img_canny, CV_GRAY2RGB);
 
 	std::cout << "HoughLines size: " << HoughLines.size() << std::endl;
 
